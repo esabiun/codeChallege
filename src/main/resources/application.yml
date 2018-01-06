@@ -1,0 +1,37 @@
+# spring settings
+
+# server settings
+server:
+  port: 9000
+
+# logging
+logging:
+  level:
+    ROOT: DEBUG
+    org.springframework.security: INFO
+    org.springframework.security.jwt.sample: INFO
+
+# time frame in milliseconds to consider
+rci.time.frame: 60000
+
+# can be changed to 'prod' for production environment, or overriden in hosting server
+spring.profiles.active: develop
+
+
+---
+# configuration specific to production environment
+spring.profiles: develop
+
+spring.autoconfigure.exclude: org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration
+
+
+---
+# configuration specific to production environment
+spring.profiles: production
+
+# logging
+logging:
+  level:
+    ROOT: INFO
+
+---
